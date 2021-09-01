@@ -19,28 +19,34 @@
 </div>
 
 <div id="startGame" style="display: none">
-
-    <div class="stick">
-    <button onclick="stick()">Stick</button>
-    </div>
-
-    <div class="Twist">
-    <button onclick="computer()">Twist</button>
-    </div>
-    <div class="playerOne">
+    <div id="readyP1" class="playerOne" style="display: none">
+        <div class="stick">
+            <button onclick="stick()">Stick</button>
+        </div>
+        <div class="Twist">
+            <button onclick="playerOne(), computer()" >Twist</button>
+        </div>
+        <h2>Player_One</h2>
         <h2 id="number_Player">0</h2>
         <div id="arrayContainer">
             <ul id="Lists">
             </ul>
         </div>
     </div>
-
-    <div id="computer_Screen" class="computer_player">
+    <div id="computer_Screen" class="computer_player" style="display: none">
+       <h2>AI</h2>
         <h2 id="number_Computer">0</h2>
     </div>
 
     <div id="playerScreenTwo" style="display: none">
         <div class="playerTwo">
+            <div class="stick">
+                <button onclick="stick()">Stick</button>
+            </div>
+            <div class="Twist">
+                <button onclick="playerTwo()">Twist</button>
+            </div>
+            <h2>Player_Two</h2>
             <h2 id="numberTwo">0</h2>
             <div id="arrayList"></div>
         </div>
@@ -49,7 +55,7 @@
     <div id="gameOverScreen" style="display: none">
         <h1>Game Over</h1>
         <h2 id="player_Who">x</h2>
-        <button>Play again?</button>
+        <button onclick="playAgain()">Play again?</button>
     </div>
 
 </div>
