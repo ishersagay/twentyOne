@@ -30,41 +30,56 @@ const createDeck = () => {
     }
     return deck;
 }
+const hasAi = () => {
+    document.getElementById(`choice`).style.display = "none";
+    document.getElementById('startGame').style.display = "block";
+}
+const hasPvp = () => {
 
-const twist = () =>  {
+}
+const twist = (card) =>  {
     let tempVal = deck[getRandom()];
-    player__One.push(tempVal.suit);
     if ((tempVal.value ==="J") || (tempVal.value === "Q") || (tempVal.value === "K")) {
-        return 10;
+        return {
+            number: 10,
+            suit_hand: card.push(tempVal.suit)
+        };
     } else if (tempVal.value === "A"){
-        return 11;
+        return {
+            number: 10,
+            suit_hand: card.push(tempVal.suit)
+        }
     }else{
-         return parseInt(tempVal.value);
+         return {
+             number: parseInt(tempVal.value),
+             suit_hand: card.push(tempVal.suit)
+         }
     }
 }
 const computer = () => {
-    ai__tally += twist()
+    ai__tally += twist(ai).number;
     if (ai__tally > 21) {
         game_Over.style.display = "block";
+        document.getElementById(`player_Who`).innerHTML = "AI has Won"
     }
-    number_Computer.innerHTML = tally__One
-    console.log("ai");
+    number_Computer.innerHTML = ai__tally;
+    console.log(ai);
 }
 const stick = () => {
     gameEnd = true;
 }
 const playerOne = () => {
-    tally__One += twist();
-    computer()
+    tally__One += twist(player__One).number;
     if (tally__One > 21) {
         bust__One = true;
         game_Over.style.display = "block";
+        document.getElementById(`player_Who`).innerHTML = "Player One has Won"
     }
     number_Player.innerHTML = tally__One;
     console.log(player__One)
 }
 const startGame = () => {
     start__Game.style.display = "none";
-    document.getElementById('startGame').style.display = "block";
+    document.getElementById(`choice`).style.display = "block";
     createDeck();
 }

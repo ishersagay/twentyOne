@@ -11,6 +11,13 @@
     <h1>Welcome to twenty-One</h1>
     <button onclick="startGame()">Start Game</button>
 </div>
+
+<div id="choice" style="display: none">
+    <h2>Select your player mode</h2>
+    <button onclick="hasAi()">AI vs Player</button>
+    <button onclick="hasPvp()">Player vs Player</button>
+</div>
+
 <div id="startGame" style="display: none">
 
     <div class="stick">
@@ -18,7 +25,7 @@
     </div>
 
     <div class="Twist">
-    <button onclick="playerOne()">Twist</button>
+    <button onclick="computer()">Twist</button>
     </div>
     <div class="playerOne">
         <h2 id="number_Player">0</h2>
@@ -28,7 +35,7 @@
         </div>
     </div>
 
-    <div id="computer_Screen" class="computer player">
+    <div id="computer_Screen" class="computer_player">
         <h2 id="number_Computer">0</h2>
     </div>
 
@@ -41,7 +48,7 @@
 
     <div id="gameOverScreen" style="display: none">
         <h1>Game Over</h1>
-        <h2>Player x won</h2>
+        <h2 id="player_Who">x</h2>
         <button>Play again?</button>
     </div>
 
