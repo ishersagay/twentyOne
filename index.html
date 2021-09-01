@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Twenty-One</title>
+    <link rel="stylesheet" href="main.css">
+    <script rel="script" src="main.js" defer></script>
+</head>
+<body>
+<div id="clickGame" style="display: inline-block">
+    <h1>Welcome to twenty-One</h1>
+    <button onclick="startGame()">Start Game</button>
+</div>
+<div id="startGame" style="display: none">
+
+    <div class="stick">
+    <button onclick="stick()">Stick</button>
+    </div>
+
+    <div class="Twist">
+    <button onclick="playerOne()">Twist</button>
+    </div>
+    <div class="playerOne">
+        <h2 id="number_Player">0</h2>
+        <div id="arrayContainer">
+            <ul id="Lists">
+            </ul>
+        </div>
+    </div>
+
+    <div id="computer_Screen" class="computer player">
+        <h2 id="number_Computer">0</h2>
+    </div>
+
+    <div id="playerScreenTwo" style="display: none">
+        <div class="playerTwo">
+            <h2 id="numberTwo">0</h2>
+            <div id="arrayList"></div>
+        </div>
+    </div>
+
+    <div id="gameOverScreen" style="display: none">
+        <h1>Game Over</h1>
+        <h2>Player x won</h2>
+        <button>Play again?</button>
+    </div>
+
+</div>
+
+</body>
+</html>
