@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic&display=swap');
 * {
     padding: 0;
     margin: 0;
 }
 body {
     background-color: #C991DF;
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
 }
 
 div.title {
@@ -14,8 +16,33 @@ div.title {
 }
 
 div.choice {
-    border: solid black;
     margin-top: 40vh;
     display: flex;
     justify-content: center;
+}
+div.playerOne {
+    margin-right: 60px;
+}
+div.playerTwo {
+    margin-left: 50px;
+}
+div.playAgain {
+    margin-top: 40vh;
+    margin-left: 40vw;
+    display: flex;
+    align-items: center;
+}
+
+div.select__container {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+div.choice__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

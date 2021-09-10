@@ -5,7 +5,12 @@ let number_Computer = document.getElementById(`number_Computer`);
 let number_PlayerTwo = document.getElementById(`numberTwo`);
 let game_Over = document.getElementById(`gameOverScreen`);
 var start__Game = document.getElementById(`clickGame`);
+let handContainer = document.getElementById(`arrayContainer`);
+let select__container = document.getElementById(`choice`)
+let  lists;
 let deck = [];
+let player__One_hand = 0;
+let ai_hand = 0;
 let player__One = [];
 let bust__One = false;
 let tally__One = 0;
@@ -41,12 +46,14 @@ const playAgain = () => {
     ai__tally = 0;
     tally__Two = 0;
     player__Two = [];
+    player__One_hand = 0;
+    ai_hand = 0;
     gameEnd = false;
     number_Computer.innerHTML = 0;
     number_Player.innerHTML = 0;
     number_PlayerTwo.innerHTML = 0;
-
-    document.getElementById(`choice`).style.display = "none";
+    lists = "";
+    select__container.
     document.getElementById(`startGame`).style.display = "none";
     document.getElementById(`computer_Screen`).style.display = "none";
     document.getElementById(`readyP1`).style.display = "none";
@@ -55,16 +62,16 @@ const playAgain = () => {
     document.getElementById(`clickGame`).style.display = "inline-block";
 }
 const hasAi = () => {
-    document.getElementById(`choice`).style.display = "none";
+    select__container.remove();
     document.getElementById('startGame').style.display = "block";
     document.getElementById(`computer_Screen`).style.display = "block";
     document.getElementById(`readyP1`).style.display = "block";
 }
 const hasPvp = () => {
-    document.getElementById(`choice`).style.display = "none";
-    document.getElementById(`readyP1`).style.display = "block";
+    select__container.remove();
+    document.getElementById(`readyP1`).style.display = "inline-block";
     document.getElementById(`startGame`).style.display = "block";
-    document.getElementById(`playerScreenTwo`).style.display = "block";
+    document.getElementById(`playerScreenTwo`).style.display = "inline-block";
 }
 const twist = (card) =>  {
     let tempVal = deck[getRandom()];
@@ -75,7 +82,7 @@ const twist = (card) =>  {
         };
     } else if (tempVal.value === "A"){
         return {
-            number: 10,
+            number: 11,
             suit_hand: card.push(tempVal.suit)
         }
     }else{
@@ -85,10 +92,18 @@ const twist = (card) =>  {
          }
     }
 }
+const list = (card) => {
+    lists = document.createElement('li');
+    lists.innerText = card;
+    handContainer.appendChild(lists)
+}
 const stick = () => {gameEnd = true;}
 const computer = () => {
     ai__tally += twist(ai).number;
-    if (ai__tally > 21) {
+    if (ai__tally === 21){
+        game_Over.style.display = "block";
+        document.getElementById(`player_Who`).innerHTML = "AI has won";
+    } else if (ai__tally > 21) {
         game_Over.style.display = "block";
         document.getElementById(`player_Who`).innerHTML = "AI has went bust"
     }
@@ -97,16 +112,24 @@ const computer = () => {
 }
 const playerOne = () => {
     tally__One += twist(player__One).number;
-    if (tally__One > 21) {
+    if (tally__One === 21){
+        game_Over.style.display = "block";
+        document.getElementById(`player_Who`).innerHTML = "Player One has won";
+    } else if (tally__One > 21) {
         game_Over.style.display = "block";
         document.getElementById(`player_Who`).innerHTML = "Player One has went bust";
     }
     number_Player.innerHTML = tally__One;
+    // list(player__One[player__One_hand])
+    player__One_hand += 1;
     console.log(player__One)
 }
 const playerTwo = () => {
     tally__Two += twist(player__Two).number;
-    if (tally__Two > 21) {
+    if (tally__Two === 21){
+        game_Over.style.display = "block";
+        document.getElementById(`player_Who`).innerHTML = "Player Two has won";
+    } else if (tally__Two > 21) {
         game_Over.style.display = "block";
         document.getElementById(`player_Who`).innerHTML = "Player Two has went bust"
     }
@@ -115,7 +138,6 @@ const playerTwo = () => {
 }
 const startGame = () => {
     start__Game.style.display = "none";
-    document.getElementById(`choice`).style.display = "block";
     createDeck();
 }
 

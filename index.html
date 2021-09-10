@@ -14,11 +14,13 @@
     </div>
 </div>
 
-<div id="choice" style="display: none">
-    <div class="choice">
-    <h2>Select your player mode</h2>
-    <button onclick="hasAi()">AI vs Player</button>
-    <button onclick="hasPvp()">Player vs Player</button>
+<div class="select__container" id="choice">
+    <div class="choice__container">
+        <h2>Select your player mode</h2>
+    <div>
+        <button onclick="hasAi()">AI vs Player</button>
+        <button onclick="hasPvp()">Player vs Player</button>
+        </div>
     </div>
 </div>
 
@@ -33,8 +35,7 @@
         <h2>Player_One</h2>
         <h2 id="number_Player">0</h2>
         <div id="arrayContainer">
-            <ul id="Lists">
-            </ul>
+
         </div>
     </div>
     <div id="computer_Screen" class="computer_player" style="display: none">
@@ -42,7 +43,7 @@
         <h2 id="number_Computer">0</h2>
     </div>
 
-    <div id="playerScreenTwo" style="display: none">
+    <div id="playerScreenTwo"  class="playerTwo" style="display: none">
         <div class="playerTwo">
             <div class="stick">
                 <button onclick="stick()">Stick</button>
@@ -56,7 +57,7 @@
         </div>
     </div>
 
-    <div id="gameOverScreen" style="display: none">
+    <div id="gameOverScreen" class="playAgain" style="display: none">
         <h1>Game Over</h1>
         <h2 id="player_Who">x</h2>
         <button onclick="playAgain()">Play again?</button>
