@@ -7,10 +7,10 @@
     <script rel="script" src="main.js" defer></script>
 </head>
 <body>
-<div id="clickGame" style="display: inline-block">
+<div id="clickGame" class="clickGame__container">
     <div class="title">
-    <h1>Welcome to twenty-One</h1>
-    <button onclick="startGame()">Start Game</button>
+        <h1>Welcome to twenty-One</h1>
+        <button onclick="startGame()">Start Game</button>
     </div>
 </div>
 
@@ -24,8 +24,9 @@
     </div>
 </div>
 
-<div id="startGame" style="display: none">
-    <div id="readyP1" class="playerOne" style="display: none">
+<div id="startGame">
+
+    <div id="readyP1" class="playerOne">
         <div class="stick">
             <button onclick="stick()">Stick</button>
         </div>
@@ -34,15 +35,12 @@
         </div>
         <h2>Player_One</h2>
         <h2 id="number_Player">0</h2>
-        <div id="arrayContainer">
-
-        </div>
     </div>
     <div id="computer_Screen" class="computer_player" style="display: none">
        <h2>AI</h2>
         <h2 id="number_Computer">0</h2>
     </div>
-
+<!--Code below is for player vs Player Code above is for player vs AI-->
     <div id="playerScreenTwo"  class="playerTwo" style="display: none">
         <div class="playerTwo">
             <div class="stick">

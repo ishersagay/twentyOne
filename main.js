@@ -4,9 +4,12 @@ let number_Player = document.getElementById(`number_Player`);
 let number_Computer = document.getElementById(`number_Computer`);
 let number_PlayerTwo = document.getElementById(`numberTwo`);
 let game_Over = document.getElementById(`gameOverScreen`);
-var start__Game = document.getElementById(`clickGame`);
 let handContainer = document.getElementById(`arrayContainer`);
+
 let select__container = document.getElementById(`choice`)
+let begin__game = document.getElementById(`startGame`)
+let aiVsPlayer = document.getElementById(`readyP1`)
+
 let  lists;
 let deck = [];
 let player__One_hand = 0;
@@ -20,6 +23,10 @@ let bust__Two = [];
 let ai = [];
 let ai__tally = 0;
 let gameEnd = false
+
+select__container.style.display = "none";
+aiVsPlayer.style.display = "none"
+
 const getRandom = () => {
     const min = Math.ceil(1);
     const max = Math.floor(52)
@@ -53,25 +60,16 @@ const playAgain = () => {
     number_Player.innerHTML = 0;
     number_PlayerTwo.innerHTML = 0;
     lists = "";
-    select__container.
-    document.getElementById(`startGame`).style.display = "none";
-    document.getElementById(`computer_Screen`).style.display = "none";
-    document.getElementById(`readyP1`).style.display = "none";
-    document.getElementById(`playerScreenTwo`).style.display = "none";
-    document.getElementById(`gameOverScreen`).style.display = "none";
-    document.getElementById(`clickGame`).style.display = "inline-block";
+    select__container.style.display = "none"
+    begin__game.style.display = "none"
 }
 const hasAi = () => {
-    select__container.remove();
-    document.getElementById('startGame').style.display = "block";
-    document.getElementById(`computer_Screen`).style.display = "block";
-    document.getElementById(`readyP1`).style.display = "block";
+    select__container.style.display = "none";
+    begin__game.style.display = "";
+    aiVsPlayer.style.display= "";
 }
 const hasPvp = () => {
-    select__container.remove();
-    document.getElementById(`readyP1`).style.display = "inline-block";
-    document.getElementById(`startGame`).style.display = "block";
-    document.getElementById(`playerScreenTwo`).style.display = "inline-block";
+    select__container.style.display = "none";
 }
 const twist = (card) =>  {
     let tempVal = deck[getRandom()];
@@ -137,7 +135,10 @@ const playerTwo = () => {
     console.log(player__Two)
 }
 const startGame = () => {
-    start__Game.style.display = "none";
     createDeck();
+    let clickGame = document.getElementById('clickGame');
+    clickGame.style.display = "none";
+    select__container.style.display = "";
+
 }
 
