@@ -9,6 +9,7 @@ let handContainer = document.getElementById(`arrayContainer`);
 let select__container = document.getElementById(`choice`)
 let begin__game = document.getElementById(`startGame`)
 let aiVsPlayer = document.getElementById(`readyP1`)
+let ai__screen = document.getElementById(`computer_Screen`)
 
 let  lists;
 let deck = [];
@@ -25,7 +26,9 @@ let ai__tally = 0;
 let gameEnd = false
 
 select__container.style.display = "none";
+begin__game.style.display = "none";
 aiVsPlayer.style.display = "none"
+ai__screen.style.display = "none"
 
 const getRandom = () => {
     const min = Math.ceil(1);
@@ -67,6 +70,7 @@ const hasAi = () => {
     select__container.style.display = "none";
     begin__game.style.display = "";
     aiVsPlayer.style.display= "";
+    ai__screen.style.display= "";
 }
 const hasPvp = () => {
     select__container.style.display = "none";

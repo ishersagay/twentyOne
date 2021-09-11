@@ -51,3 +51,15 @@ div.choice__container {
     justify-content: center;
     align-items: center;
 }
+
+div.SG__Style {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+div.playerOne {
+    display: flex;
+    align-items: center;
+}

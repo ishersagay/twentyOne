@@ -24,19 +24,19 @@
     </div>
 </div>
 
-<div id="startGame">
+<div id="startGame" class="SG__Style">
 
     <div id="readyP1" class="playerOne">
-        <div class="stick">
-            <button onclick="stick()">Stick</button>
-        </div>
-        <div class="Twist">
-            <button onclick="playerOne(), computer()" >Twist</button>
-        </div>
+        <div>
         <h2>Player_One</h2>
         <h2 id="number_Player">0</h2>
+        </div>
+        <div class="buttons">
+            <button onclick="stick()">Stick</button>
+            <button onclick="playerOne(), computer()" >Twist</button>
+        </div>
     </div>
-    <div id="computer_Screen" class="computer_player" style="display: none">
+    <div id="computer_Screen" class="computer_player">
        <h2>AI</h2>
         <h2 id="number_Computer">0</h2>
     </div>
