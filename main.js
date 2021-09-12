@@ -10,6 +10,7 @@ let select__container = document.getElementById(`choice`)
 let begin__game = document.getElementById(`startGame`)
 let aiVsPlayer = document.getElementById(`readyP1`)
 let ai__screen = document.getElementById(`computer_Screen`)
+let pVp = document.getElementById(`playerScreenTwo`)
 
 let  lists;
 let deck = [];
@@ -29,6 +30,8 @@ select__container.style.display = "none";
 begin__game.style.display = "none";
 aiVsPlayer.style.display = "none"
 ai__screen.style.display = "none"
+pVp.style.display = "none";
+game_Over.style.display = "none";
 
 const getRandom = () => {
     const min = Math.ceil(1);
@@ -47,6 +50,7 @@ const createDeck = () => {
     }
     return deck;
 }
+
 const playAgain = () => {
     player__One = [];
     deck = [];
@@ -74,6 +78,8 @@ const hasAi = () => {
 }
 const hasPvp = () => {
     select__container.style.display = "none";
+    begin__game.style.display = "";
+    pVp.style.display = "";
 }
 const twist = (card) =>  {
     let tempVal = deck[getRandom()];
@@ -129,7 +135,7 @@ const playerOne = () => {
 const playerTwo = () => {
     tally__Two += twist(player__Two).number;
     if (tally__Two === 21){
-        game_Over.style.display = "block";
+        game_Over.style.display = "";
         document.getElementById(`player_Who`).innerHTML = "Player Two has won";
     } else if (tally__Two > 21) {
         game_Over.style.display = "block";
